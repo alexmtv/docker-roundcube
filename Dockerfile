@@ -15,4 +15,8 @@ ADD files/dbconfig/roundcube.conf /etc/dbconfig-common/roundcube.conf
 
 EXPOSE 80
 
-CMD ["/bin/init.sh"]
+## Add startup script.
+ADD bin/init.sh /app/bin/init.sh
+RUN chmod 0755 /app/bin/init.sh
+
+CMD ["/app/bin/init.sh"]
