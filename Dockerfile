@@ -10,6 +10,10 @@ RUN apt-get -qq update && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 
+ENV ROUNDCUBE_DBUSER=roundcube \
+    ROUNDCUBE_DBNAME=roundcube \
+    ROUNDCUBE_DBSERVER=postgres
+
 ADD files/uwsgi/roundcube.conf /etc/uwsgi/apps-available/roundcube.conf
 ADD files/dbconfig/roundcube.conf /etc/dbconfig-common/roundcube.conf
 
