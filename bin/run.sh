@@ -17,4 +17,5 @@ sed -i -e "s/{{ROUNDCUBE_DBUSER}}/${ROUNDCUBE_DBUSER}/" \
 dbconfig-generate-include /etc/dbconfig-common/roundcube.conf > /etc/roundcube/debian-db.php
 
 MSG "Serving site..."
-uwsgi --uid www-data --gid www-data --ini /etc/uwsgi/apps-available/roundcube.conf
+
+exec "$@"
